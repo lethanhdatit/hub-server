@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore "./HubService"
     - name: Build code
-      run: dotnet build "./hub-server" --configuration Release --no-restore
+      run: dotnet build "./HubService" --configuration Release --no-restore
     - name: Publish application
-      run: dotnet publish "./hub-server" -c Release -o release --nologo
+      run: dotnet publish "./HubService" -c Release -o release --nologo
     
