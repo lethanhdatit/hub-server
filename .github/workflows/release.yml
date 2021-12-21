@@ -1,4 +1,4 @@
-name: Deploy main Hub-server
+name: Deploy release Hub-server
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
     
 jobs:
   deploy-to-github-pages:
-    # use window-latest image to run steps on
-    runs-on: window-latest
+    # use ubuntu-latest image to run steps on
+    runs-on: ubuntu-latest
     steps:
     # uses GitHub's checkout action to checkout code form the master branch
     - uses: actions/checkout@v2
@@ -19,12 +19,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore "./HubService"
     - name: Build code
-      run: dotnet build "./HubService" --configuration Release --no-restore
+      run: dotnet build "./hub-server" --configuration Release --no-restore
     - name: Publish application
-      run: dotnet publish "./HubService" -c Release -o release --nologo
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: release
-        FOLDER: "./HubService/release"
+      run: dotnet publish "./hub-server" -c Release -o release --nologo
+    
