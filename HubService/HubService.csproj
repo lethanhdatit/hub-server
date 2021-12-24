@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>d70214cb-3960-4901-8939-3c6b00962408</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <Configurations>Debug;Release;Staging</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
